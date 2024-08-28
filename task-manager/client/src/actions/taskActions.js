@@ -1,0 +1,21 @@
+import axios from 'axios';
+
+export const fetchTasks = () => async (dispatch) => {
+  dispatch({ type: 'FETCH_TASKS_REQUEST' });
+  try {
+    const response = await axios.get('http://localhost:5001/api/tasks');
+    dispatch({ type: 'FETCH_TASKS_SUCCESS', payload: response.data });
+  } catch (error) {
+    dispatch({ type: 'FETCH_TASKS_FAILURE', payload: error.message });
+  }
+};
+
+export const deleteTask = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`http://localhost:5001/api/tasks/${id}`);
+    dispatch({ type: 'DELETE_TASK', payload: id });
+  } catch (error) {
+    console.error('Error deleting task:', error);
+  }
+};
+
