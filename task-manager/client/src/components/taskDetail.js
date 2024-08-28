@@ -9,7 +9,7 @@ const TaskDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
+    axios.get(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`)
       .then((response) => {
         setTask(response.data);
         setLoading(false);

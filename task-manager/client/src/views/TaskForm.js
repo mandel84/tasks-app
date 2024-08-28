@@ -12,7 +12,7 @@ const TaskForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('tasks-6c1mc3fwg-mandelito.vercel.app')
+    axios.get('tasks-cr7g9ttl5-mandelito.vercel.app')
       .then(response => setProjects(response.data))
       .catch(error => console.error('Error fetching projects:', error));
   }, []);
@@ -22,10 +22,10 @@ const TaskForm = () => {
     const newTask = { title, description, dueDate, priority, projectId: selectedProject || null };  // Allow projectId to be null
 
 
-    console.log('Submitting task:', newTask);  // Add this line
+    console.log('Submitting task:', newTask);  
     axios.post('tasks-6c1mc3fwg-mandelito.vercel.app', newTask)
       .then(() => {
-        navigate('/');  // Navigate back to the task list after submission
+        navigate('/');  
       })
       .catch((err) => console.error('Error creating task:', err.response || err.message || err));
   };

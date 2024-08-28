@@ -11,9 +11,9 @@ const ProjectForm = () => {
     e.preventDefault();
     const newProject = { name, description };
 
-    axios.post('tasks-6c1mc3fwg-mandelito.vercel.app', newProject)
+    axios.post('tasks-cr7g9ttl5-mandelito.vercel.app', newProject)
       .then(() => {
-        navigate('/projects');  // Navigate to the project list after submission
+        navigate('/projects');  
       })
       .catch((err) => console.error(err));
   };

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const UpdateTaskForm = () => {
-  const { id } = useParams(); // Get the task ID from the URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [task, setTask] = useState({
     title: '',
@@ -14,8 +14,7 @@ const UpdateTaskForm = () => {
   });
 
   useEffect(() => {
-    // Fetch the task details when the component mounts
-    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
+    axios.get(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`)
       .then(response => setTask(response.data))
       .catch(error => console.error('Error fetching task:', error));
   }, [id]);
@@ -30,10 +29,9 @@ const UpdateTaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Send updated task data to the server
-    axios.put(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`, task)
+    axios.put(`ttasks-cr7g9ttl5-mandelito.vercel.app/${id}`, task)
       .then(() => {
-        navigate('/'); // Navigate back after updating
+        navigate('/'); 
       })
       .catch(error => console.error('Error updating task:', error));
   };

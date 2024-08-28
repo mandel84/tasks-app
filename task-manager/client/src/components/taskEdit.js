@@ -9,11 +9,10 @@ const TaskEdit = () => {
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [priority, setPriority] = useState('medium');
-  const [projectId, setProjectId] = useState(null); // Assume tasks belong to projects
+  const [projectId, setProjectId] = useState(null); 
 
   useEffect(() => {
-    // Fetch the existing task details to pre-fill the form
-    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
+    axios.get(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`)
       .then(response => {
         const { title, description, dueDate, priority, projectId } = response.data;
         setTitle(title);
@@ -29,7 +28,7 @@ const TaskEdit = () => {
     e.preventDefault();
     const updatedTask = { title, description, dueDate, priority, projectId };
 
-    axios.put(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`, updatedTask)
+    axios.put(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`, updatedTask)
       .then(() => {
         navigate('/'); 
       })
