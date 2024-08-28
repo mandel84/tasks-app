@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const sequelize = require('./config/database');  // Ensure the path is correct
+const sequelize = require('./config/database');  
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 
@@ -27,4 +27,4 @@ sequelize.sync({ force: false })
     console.error('Unable to sync database:', error.stack);
   });
 
-module.exports = app;  // Exporting app if needed elsewhere
+module.exports = app;  

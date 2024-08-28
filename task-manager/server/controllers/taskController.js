@@ -2,12 +2,11 @@ const {Task}= require('../models');
 
 exports.getAllTasks = async (req, res) => {
   try {
-    console.log('Fetching all tasks...'); // Log when this function is called
-    const tasks = await Task.findAll();
-    console.log('Tasks fetched successfully:', tasks); // Log the fetched tasks
+    console.log('Fetching all tasks...'); 
+    console.log('Tasks fetched successfully:', tasks); 
     res.status(200).json(tasks);
   } catch (err) {
-    console.error('Error fetching tasks:', err.message || err);  // Log the detailed error
+    console.error('Error fetching tasks:', err.message || err);  
     res.status(500).json({ error: 'Failed to fetch tasks' });
   }
 };
