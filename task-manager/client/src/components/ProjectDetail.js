@@ -9,7 +9,7 @@ const ProjectDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5001/api/projects/${id}`)
+    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then((response) => {
         setProject(response.data);
         setLoading(false);

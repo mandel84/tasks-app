@@ -8,13 +8,13 @@ const TaskDelete = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5001/api/tasks/${id}`)
+    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then(response => setTask(response.data))
       .catch(error => console.error('Error fetching task:', error));
   }, [id]);
 
   const handleDelete = () => {
-    axios.delete(`http://localhost:5001/api/tasks/${id}`)
+    axios.delete(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then(() => {
         navigate('/');
       })

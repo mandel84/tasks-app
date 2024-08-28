@@ -9,7 +9,7 @@ const TaskDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5001/api/tasks/${id}`)
+    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then((response) => {
         setTask(response.data);
         setLoading(false);

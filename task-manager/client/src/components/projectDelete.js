@@ -8,13 +8,13 @@ const ProjectDelete = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5001/api/projects/${id}`)
+    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then(response => setProject(response.data))
       .catch(error => console.error('Error fetching project:', error));
   }, [id]);
 
   const handleDelete = () => {
-    axios.delete(`http://localhost:5001/api/projects/${id}`)
+    axios.delete(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then(() => {
         navigate('/projects'); // Redirect to project list after deletion
       })

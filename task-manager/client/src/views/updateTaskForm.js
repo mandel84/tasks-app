@@ -15,7 +15,7 @@ const UpdateTaskForm = () => {
 
   useEffect(() => {
     // Fetch the task details when the component mounts
-    axios.get(`http://localhost:5001/api/tasks/${id}`)
+    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then(response => setTask(response.data))
       .catch(error => console.error('Error fetching task:', error));
   }, [id]);
@@ -31,7 +31,7 @@ const UpdateTaskForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send updated task data to the server
-    axios.put(`http://localhost:5001/api/tasks/${id}`, task)
+    axios.put(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`, task)
       .then(() => {
         navigate('/'); // Navigate back after updating
       })

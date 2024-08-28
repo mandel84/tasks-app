@@ -11,7 +11,7 @@ const ProjectForm = () => {
     e.preventDefault();
     const newProject = { name, description };
 
-    axios.post('http://localhost:5001/api/projects', newProject)
+    axios.post('tasks-6c1mc3fwg-mandelito.vercel.app', newProject)
       .then(() => {
         navigate('/projects');  // Navigate to the project list after submission
       })

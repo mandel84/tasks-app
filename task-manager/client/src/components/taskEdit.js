@@ -13,7 +13,7 @@ const TaskEdit = () => {
 
   useEffect(() => {
     // Fetch the existing task details to pre-fill the form
-    axios.get(`http://localhost:5001/api/tasks/${id}`)
+    axios.get(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`)
       .then(response => {
         const { title, description, dueDate, priority, projectId } = response.data;
         setTitle(title);
@@ -29,7 +29,7 @@ const TaskEdit = () => {
     e.preventDefault();
     const updatedTask = { title, description, dueDate, priority, projectId };
 
-    axios.put(`http://localhost:5001/api/tasks/${id}`, updatedTask)
+    axios.put(`tasks-6c1mc3fwg-mandelito.vercel.app/${id}`, updatedTask)
       .then(() => {
         navigate('/'); 
       })

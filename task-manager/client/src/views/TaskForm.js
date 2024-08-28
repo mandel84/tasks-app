@@ -12,7 +12,7 @@ const TaskForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/projects')
+    axios.get('tasks-6c1mc3fwg-mandelito.vercel.app')
       .then(response => setProjects(response.data))
       .catch(error => console.error('Error fetching projects:', error));
   }, []);
@@ -23,7 +23,7 @@ const TaskForm = () => {
 
 
     console.log('Submitting task:', newTask);  // Add this line
-    axios.post('http://localhost:5001/api/tasks', newTask)
+    axios.post('tasks-6c1mc3fwg-mandelito.vercel.app', newTask)
       .then(() => {
         navigate('/');  // Navigate back to the task list after submission
       })
