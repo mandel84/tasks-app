@@ -14,7 +14,7 @@ const UpdateTaskForm = () => {
   });
 
   useEffect(() => {
-    axios.get(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`)
+    axios.get(`tasks-app-umber.vercel.app/${id}`)
       .then(response => setTask(response.data))
       .catch(error => console.error('Error fetching task:', error));
   }, [id]);
@@ -29,7 +29,7 @@ const UpdateTaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`ttasks-cr7g9ttl5-mandelito.vercel.app/${id}`, task)
+    axios.put(`tasks-app-umber.vercel.app/${id}`, task)
       .then(() => {
         navigate('/'); 
       })
@@ -86,11 +86,6 @@ const UpdateTaskForm = () => {
           onChange={handleChange}
         >
           <option value="">None</option>
-          {/* You can dynamically populate this list from your projects */}
-          {/* Example: */}
-          {/* {projects.map(project => (
-            <option key={project.id} value={project.id}>{project.name}</option>
-          ))} */}
         </select>
       </div>
       <button type="submit">Update Task</button>

@@ -12,7 +12,7 @@ const TaskForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('tasks-cr7g9ttl5-mandelito.vercel.app')
+    axios.get('tasks-app-umber.vercel.app')
       .then(response => setProjects(response.data))
       .catch(error => console.error('Error fetching projects:', error));
   }, []);
@@ -23,7 +23,7 @@ const TaskForm = () => {
 
 
     console.log('Submitting task:', newTask);  
-    axios.post('tasks-6c1mc3fwg-mandelito.vercel.app', newTask)
+    axios.post('tasks-app-umber.vercel.app', newTask)
       .then(() => {
         navigate('/');  
       })

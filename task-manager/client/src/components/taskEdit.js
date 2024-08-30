@@ -12,7 +12,7 @@ const TaskEdit = () => {
   const [projectId, setProjectId] = useState(null); 
 
   useEffect(() => {
-    axios.get(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`)
+    axios.get(`tasks-app-umber.vercel.app/${id}`)
       .then(response => {
         const { title, description, dueDate, priority, projectId } = response.data;
         setTitle(title);
@@ -28,7 +28,7 @@ const TaskEdit = () => {
     e.preventDefault();
     const updatedTask = { title, description, dueDate, priority, projectId };
 
-    axios.put(`tasks-cr7g9ttl5-mandelito.vercel.app/${id}`, updatedTask)
+    axios.put(`tasks-app-umber.vercel.app/${id}`, updatedTask)
       .then(() => {
         navigate('/'); 
       })

@@ -11,7 +11,7 @@ const ProjectForm = () => {
     e.preventDefault();
     const newProject = { name, description };
 
-    axios.post('tasks-cr7g9ttl5-mandelito.vercel.app', newProject)
+    axios.post('tasks-app-umber.vercel.app', newProject)
       .then(() => {
         navigate('/projects');  
       })
