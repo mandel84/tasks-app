@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5001;
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'tasks-app-umber.vercel.app',
 }));
 app.use(express.json());
 
