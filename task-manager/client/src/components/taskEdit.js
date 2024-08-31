@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const TaskEdit = () => {
-  const { id } = useParams(); // Get the task ID from the URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -12,7 +12,7 @@ const TaskEdit = () => {
   const [projectId, setProjectId] = useState(null); 
 
   useEffect(() => {
-    axios.get(`tasks-app-umber.vercel.app/${id}`)
+    axios.get(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`)
       .then(response => {
         const { title, description, dueDate, priority, projectId } = response.data;
         setTitle(title);
@@ -28,7 +28,7 @@ const TaskEdit = () => {
     e.preventDefault();
     const updatedTask = { title, description, dueDate, priority, projectId };
 
-    axios.put(`tasks-app-umber.vercel.app/${id}`, updatedTask)
+    axios.put(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`, updatedTask)
       .then(() => {
         navigate('/'); 
       })

@@ -11,16 +11,22 @@ const TaskList = () => {
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);
+  console.log("Tasks:", tasks);
 
+  
   return (
     <div>
       <h1>Task List</h1>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <ul>
-        {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} />
-        ))}
+        {Array.isArray(tasks) ? (
+          tasks.map((task) => (
+            <TaskItem key={task.id} task={task} />
+          ))
+        ) : (
+          <p>No tasks available</p>
+        )}
       </ul>
     </div>
   );

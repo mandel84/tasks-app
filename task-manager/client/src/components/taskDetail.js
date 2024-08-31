@@ -9,7 +9,7 @@ const TaskDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`tasks-app-umber.vercel.app/${id}`)
+    axios.get(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`)
       .then((response) => {
         setTask(response.data);
         setLoading(false);

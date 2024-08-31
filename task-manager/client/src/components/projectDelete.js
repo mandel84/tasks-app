@@ -8,13 +8,13 @@ const ProjectDelete = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`tasks-app-umber.vercel.app/${id}`)
+    axios.get(`tasks-app-server-two.vercel.app/${id}`)
       .then(response => setProject(response.data))
       .catch(error => console.error('Error fetching project:', error));
   }, [id]);
 
   const handleDelete = () => {
-    axios.delete(`tasks-app-umber.vercel.app/${id}`)
+    axios.delete(`tasks-app-server-two.vercel.app/${id}`)
       .then(() => {
         navigate('/projects'); 
       })

@@ -8,22 +8,22 @@ const TaskForm = () => {
   const [dueDate, setDueDate] = useState('');
   const [priority, setPriority] = useState('medium');
   const [projects, setProjects] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null);  // Default to null to make it optional
+  const [selectedProject, setSelectedProject] = useState(null); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('tasks-app-umber.vercel.app')
+    axios.get('http://localhost:5001')
       .then(response => setProjects(response.data))
       .catch(error => console.error('Error fetching projects:', error));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask = { title, description, dueDate, priority, projectId: selectedProject || null };  // Allow projectId to be null
+    const newTask = { title, description, dueDate, priority, projectId: selectedProject || null };  
 
 
     console.log('Submitting task:', newTask);  
-    axios.post('tasks-app-umber.vercel.app', newTask)
+    axios.post('https://tasks-app-server-two.vercel.app/api/tasks', newTask)
       .then(() => {
         navigate('/');  
       })
