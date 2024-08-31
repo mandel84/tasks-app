@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const sequelize = require('./config/database');  
+const sequelize = require('./config/database');
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 
@@ -8,8 +8,13 @@ const PORT = process.env.PORT || 5001;
 
 const app = express();
 
+
+const frontendURL = 'https://tasks-app-client-iota.vercel.app';
+
+
+// app.use(cors())
 app.use(cors({
-  origin: 'tasks-app-umber.vercel.app',
+  origin: frontendURL,
 }));
 app.use(express.json());
 
@@ -27,4 +32,4 @@ sequelize.sync({ force: false })
     console.error('Unable to sync database:', error.stack);
   });
 
-module.exports = app;  
+module.exports = app;

@@ -1,12 +1,11 @@
-const {Task}= require('../models');
+const Task = require('../models/Task'); 
 
 exports.getAllTasks = async (req, res) => {
   try {
-    console.log('Fetching all tasks...'); 
-    console.log('Tasks fetched successfully:', tasks); 
-    res.status(200).json(tasks);
-  } catch (err) {
-    console.error('Error fetching tasks:', err.message || err);  
+    const tasks = await Task.findAll();
+    res.json(tasks);
+  } catch (error) {
+    console.error('Error fetching tasks:', error);
     res.status(500).json({ error: 'Failed to fetch tasks' });
   }
 };
@@ -26,10 +25,9 @@ exports.getTaskById = async (req, res) => {
 exports.createTask = async (req, res) => {
   try {
     const { title, description, dueDate, priority, projectId } = req.body;
-    
-    // Create a new task
+
     const newTask = await Task.create({ title, description, dueDate, priority, projectId });
-    
+
     res.status(201).json(newTask);
   } catch (error) {
     console.error('Error creating task:', error);
