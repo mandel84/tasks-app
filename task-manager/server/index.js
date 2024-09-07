@@ -9,13 +9,15 @@ const PORT = process.env.PORT || 5001;
 const app = express();
 
 
-const frontendURL = 'https://tasks-app-client-iota.vercel.app';
+// const frontendURL = 'https://tasks-app-client-iota.vercel.app';
 
-
-// app.use(cors())
-app.use(cors({
-  origin: frontendURL,
-}));
+app.use(cors())
+// app.use(cors({
+//   origin: '*',
+// }))
+// // app.use(cors({
+// //   origin: frontendURL,
+// // }));
 app.use(express.json());
 
 app.use('/api/tasks', taskRoutes);
