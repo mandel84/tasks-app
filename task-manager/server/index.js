@@ -3,14 +3,19 @@ const cors = require('cors');
 const sequelize = require('./config/database');
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
+const path = require('path');
+
+// Serve the React frontend
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
+
 
 const PORT = process.env.PORT || 5001;
 
 const app = express();
-
-app.get('/', (req, res) => {
-  res.send('Server is running!');
-});
 
 
 
