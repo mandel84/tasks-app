@@ -5,7 +5,7 @@ import apiBaseUrl from '../apiConfig';
 export const fetchTasks = () => async (dispatch) => {
   dispatch({ type: 'FETCH_TASKS_REQUEST' });
   try {
-    const response = await axios.get(`${apiBaseUrl}`);
+    const response = await axios.get(`${apiBaseUrl}/tasks`);
     dispatch({ type: 'FETCH_TASKS_SUCCESS', payload: response.data });
   } catch (error) {
     dispatch({ type: 'FETCH_TASKS_FAILURE', payload: error.message });
