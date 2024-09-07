@@ -14,7 +14,7 @@ export const fetchTasks = () => async (dispatch) => {
 
 export const deleteTask = (id) => async (dispatch) => {
   try {
-    await axios.delete(`${apiBaseUrl}/${id}`);
+    await axios.delete(`${apiBaseUrl}/tasks/${id}`);
     dispatch({ type: 'DELETE_TASK', payload: id });
   } catch (error) {
     console.error('Error deleting task:', error);

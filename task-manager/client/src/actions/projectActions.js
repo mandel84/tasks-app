@@ -14,7 +14,7 @@ export const fetchProjects = () => async (dispatch) => {
 
 export const deleteProject = (id) => async (dispatch) => {
   try {
-    await axios.delete(`${apiBaseUrl}/${id}`);
+    await axios.delete(`${apiBaseUrl}/projects/${id}`);
     dispatch({ type: 'DELETE_PROJECT', payload: id });
   } catch (error) {
     console.error('Error deleting project:', error);
