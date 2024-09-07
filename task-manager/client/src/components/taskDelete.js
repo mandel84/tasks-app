@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios, { spread } from 'axios';
+import apiBaseUrl from '../apiConfig';
 
 const TaskDelete = () => {
   const { id } = useParams();
   const [task, setTask] = useState(null);
   const navigate = useNavigate();
+  
 
   useEffect(() => {
-    axios.get(`axios.get('https://tasks-app-server-two.vercel.app/api/tasks')/${id}`)
+    axios.get(`${apiBaseUrl}/api/tasks/${id}`)
       .then(response => setTask(response.data))
       .catch(error => console.error('Error fetching task:', error));
   }, [id]);
 
   const handleDelete = () => {
-    axios.delete(`axios.get('https://tasks-app-server-two.vercel.app/api/tasks')/${id}`)
+    axios.delete(`${apiBaseUrl}/api/tasks/${id}`)
       .then(() => {
         navigate('/');
       })

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import apiBaseUrl from '../apiConfig';
 
 const ProjectDelete = () => {
   const { id } = useParams();
@@ -8,13 +9,13 @@ const ProjectDelete = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`tasks-app-server-two.vercel.app/${id}`)
+    axios.get(`${apiBaseUrl}/${id}`)
       .then(response => setProject(response.data))
       .catch(error => console.error('Error fetching project:', error));
   }, [id]);
 
   const handleDelete = () => {
-    axios.delete(`tasks-app-server-two.vercel.app/${id}`)
+    axios.delete(`${apiBaseUrl}/${id}`)
       .then(() => {
         navigate('/projects'); 
       })

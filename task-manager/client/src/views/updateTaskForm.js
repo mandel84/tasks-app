@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import apiBaseUrl from '../apiConfig';
+
 
 const UpdateTaskForm = () => {
   const { id } = useParams(); 
@@ -14,7 +16,7 @@ const UpdateTaskForm = () => {
   });
 
   useEffect(() => {
-    axios.get(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`)
+    axios.get(`${apiBaseUrl}/api/tasks/${id}`)
       .then(response => setTask(response.data))
       .catch(error => console.error('Error fetching task:', error));
   }, [id]);
@@ -29,7 +31,7 @@ const UpdateTaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`, task)
+    axios.put(`${apiBaseUrl}/api/tasks/${id}`, task)
       .then(() => {
         navigate('/'); 
       })

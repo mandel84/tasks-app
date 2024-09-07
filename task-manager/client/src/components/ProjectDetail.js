@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
+
 const ProjectDetail = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
@@ -9,7 +11,7 @@ const ProjectDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`tasks-app-server-two.vercel.app/${id}`)
+    axios.get(`${apiBaseUrl}/${id}`)
       .then((response) => {
         setProject(response.data);
         setLoading(false);

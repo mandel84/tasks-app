@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import apiBaseUrl from '../apiConfig';
+
 
 const TaskForm = () => {
   const [title, setTitle] = useState('');
@@ -12,7 +14,7 @@ const TaskForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:5001')
+    axios.get(`${apiBaseUrl}/api/tasks`)
       .then(response => setProjects(response.data))
       .catch(error => console.error('Error fetching projects:', error));
   }, []);
@@ -23,7 +25,7 @@ const TaskForm = () => {
 
 
     console.log('Submitting task:', newTask);  
-    axios.post('https://tasks-app-server-two.vercel.app/api/tasks', newTask)
+    axios.post(`${apiBaseUrl}/api/tasks`, newTask)
       .then(() => {
         navigate('/');  
       })

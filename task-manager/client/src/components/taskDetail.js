@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
+
 const TaskDetail = () => {
   const { id } = useParams();
   const [task, setTask] = useState(null);
@@ -9,7 +11,7 @@ const TaskDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`)
+    axios.get(`/${id}`)
       .then((response) => {
         setTask(response.data);
         setLoading(false);

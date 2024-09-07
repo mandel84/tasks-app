@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import apiBaseUrl from '../apiConfig';
+
+
 
 const TaskEdit = () => {
   const { id } = useParams(); 
@@ -10,9 +13,10 @@ const TaskEdit = () => {
   const [dueDate, setDueDate] = useState('');
   const [priority, setPriority] = useState('medium');
   const [projectId, setProjectId] = useState(null); 
+  
 
   useEffect(() => {
-    axios.get(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`)
+    axios.get(`${apiBaseUrl}/api/tasks/${id}`)
       .then(response => {
         const { title, description, dueDate, priority, projectId } = response.data;
         setTitle(title);
@@ -28,7 +32,7 @@ const TaskEdit = () => {
     e.preventDefault();
     const updatedTask = { title, description, dueDate, priority, projectId };
 
-    axios.put(`https://tasks-app-server-two.vercel.app/api/tasks/${id}`, updatedTask)
+    axios.put(`${apiBaseUrl}/api/tasks/${id}`, updatedTask)
       .then(() => {
         navigate('/'); 
       })

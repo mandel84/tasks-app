@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import apiBaseUrl from '../apiConfig';
 
 const ProjectForm = () => {
   const [name, setName] = useState('');
@@ -11,7 +12,7 @@ const ProjectForm = () => {
     e.preventDefault();
     const newProject = { name, description };
 
-    axios.post('https://tasks-app-server-two.vercel.app/api/tasks', newProject)
+    axios.post(`${apiBaseUrl}/api/tasks`, newProject)
       .then(() => {
         navigate('/projects');  
       })
