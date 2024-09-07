@@ -21,6 +21,8 @@ const Task = sequelize.define('Task', {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
+}, {
+  tableName: 'tasks',  
+  timestamps: false,   
 });
-
 module.exports = Task;

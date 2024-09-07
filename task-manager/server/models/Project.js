@@ -10,6 +10,9 @@ const Project = sequelize.define('Project', {
     type: DataTypes.TEXT,
     allowNull: true,
   },
+}, {
+  tableName: 'projects', 
+  timestamps: false,      
 });
 
 module.exports = Project;

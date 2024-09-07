@@ -2,21 +2,15 @@ const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 
-const useSSL = process.env.NODE_ENV === 'production';
-
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
-  dialectOptions: useSSL
-    ? {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false, 
-        },
-      }
-    : {},
-  logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,  // This makes SSL required
+      rejectUnauthorized: false  // This allows self-signed certificates (like in Neon)
+    }
+  },
 });
-
 sequelize.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.error('Database connection error:', err.stack));
