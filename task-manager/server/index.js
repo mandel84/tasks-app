@@ -8,17 +8,15 @@ const path = require('path');
 
 
 
-const PORT = process.env.PORT || 5001;
+
 
 const app = express();
 
 
-
-app.use(cors({
-  origin: '*'
-}))
-
 app.use(express.json());
+app.use(cors())
+
+
 
 app.use('/api/tasks', taskRoutes);
 app.use('/api/projects', projectRoutes);
@@ -28,6 +26,11 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build/index.html'));
+});
+
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 sequelize.sync({ force: false })
