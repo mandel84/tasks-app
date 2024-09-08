@@ -7,11 +7,6 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "build-client": "cd ../client && npm install && npm run build",
-
-    
-
-  
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -25,12 +20,7 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3"
   },
-  
   "devDependencies": {
     "nodemon": "^3.1.4"
-  },
-  "engines": {
-  "node": "12.1"
-}
-
+  }
 }
